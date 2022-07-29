@@ -1,0 +1,13 @@
+// * font styles mixin
+@mixin font-style ($_font-color, $_line-height, $_font-size) {
+    color: $_font-color;
+    line-height: $_line-height;
+    font-size: $_font-size;
+}
+
+// * media query mixin
+@mixin media ($_property, $_value) {
+    @media ($_property: $_value) {
+        @content
+    }
+}
