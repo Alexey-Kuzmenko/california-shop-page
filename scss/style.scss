@@ -1,11 +1,15 @@
-/* utilities */
+// * utilities
 @import 'utilities/variables';
 @import 'utilities/mixins';
 @import 'utilities/templates';
 
+// * base
 /* * fonts and default styles reset */
 @import 'base/fonts';
 @import 'base/reset';
 
+// * layout
 /* * html and body */
 @import 'layout/root';
+
+// * modules
