@@ -11,5 +11,14 @@
 // * layout
 /* * html and body */
 @import 'layout/root';
+@import 'layout/page';
+@import 'layout/container';
+@import 'layout/header';
+
 
 // * modules
+@import 'modules/menu';
+@import 'modules/inputs';
+
+// * animations
+@import 'animation/animations'

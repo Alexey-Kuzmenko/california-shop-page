@@ -1,0 +1,38 @@
+/* * header */
+.header {
+    &__container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    &__inner-flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+
+        .cart {
+            margin-left: 22px;
+        }
+    }
+
+    // ! media query
+    @include media(min-width, $laptop) {
+        &__controls > .search-input_animated {
+            &:hover {
+                animation: input-grows 0.8s ease-in;
+                animation-fill-mode: forwards;
+            }
+
+            &:focus {
+                visibility: visible;
+                width: 200px;
+                animation: none;
+            }
+        }
+    }
+}
