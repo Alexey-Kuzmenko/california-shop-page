@@ -15,12 +15,13 @@
         display: flex;
         align-items: center;
 
-        .cart {
-            margin-left: 22px;
-        }
     }
 
-    // ! media query
+    &__cart-icon {
+        margin-left: 22px;
+    }
+
+    // ! media query >= 1024px
     @include media(min-width, $laptop) {
         &__controls > .search-input_animated {
             &:hover {
@@ -33,6 +34,36 @@
                 width: 200px;
                 animation: none;
             }
+        }
+    }
+
+    // ! media query <= 768px
+    @include media (max-width, $tablet) {
+        &__logo {
+            order: 2;
+        }
+
+        &__menu {
+            order: 1;
+        }
+
+        &__controls {
+            order: 3;
+
+            & > .search-wrapper {
+                display: none;
+            }
+        }
+
+        &__cart-icon {
+            margin: 0;
+        }
+
+    }
+
+    @include media (max-width, $mobile-m) {
+        &__container {
+            padding: 30px 15px;
         }
     }
 }

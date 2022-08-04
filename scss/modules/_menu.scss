@@ -3,35 +3,33 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        column-gap: 33px;
 
         padding: 0;
 
         & > li {
             &:nth-child(3) {
                 position: relative;
-
-                &::after {
-                    content: url(../images/icons/arrow.svg);
-                    width: 10px;
-                    height: 5px;
-                    position: absolute;
-                    top: 0;
-                    left: calc(100% + 3px)
-                }
-
-                &:hover::after,
-                .open {
-                    transform: rotate(-180deg);
-                    top: 80%;
-                }
-
-                &:hover .menu__sub-menu {
-                    display: block
-                }
             }
         }
 
     }
+
+
+
+    &__link {
+
+        &_with-arrow::before {
+            content: url(../images/icons/arrow.svg);
+            width: 10px;
+            height: 5px;
+            position: absolute;
+            top: 0;
+            left: calc(100% + 3px);
+
+        }
+    }
+
 
     &__link,
     &__sub-link {
@@ -49,6 +47,10 @@
         height: auto;
         padding: 20px 10px 10px 10px;
 
+        &_open {
+            display: block;
+        }
+
 
         & > li {
             &:nth-child(2) {
@@ -59,10 +61,17 @@
         }
     }
 
-    // ! media query
+
+    // ! media query >= 1024px
     @include media(min-width, $laptop) {
         &__list {
-            column-gap: 33px;
+            & > li {
+                &:nth-child(3) {
+                    &:hover .menu__sub-menu {
+                        display: block
+                    }
+                }
+            }
         }
 
         &__link {
@@ -120,10 +129,59 @@
                 transition: color 0.5s ease;
             }
         }
-
     }
 
+    // ! media query <= 768px
     @include media (max-width, $tablet) {
+        &__body {
+            position: fixed;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            padding: 100px 0 0 10px;
+            overflow: auto;
+
+            background-color: $white-color;
+            transition: left 0.3s ease-in;
+
+            &_open {
+                left: 0;
+                transition: left 0.3s ease-in;
+            }
+        }
+
+        &__list {
+            row-gap: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__link,
+        &__sub-link {
+            font-size: 1.25rem;
+        }
+
+        &__link_with-arrow {
+            &::before {
+                left: 120px;
+            }
+        }
+
+        &__sub-menu {
+            position: relative;
+            right: 0;
+            padding: 20px 0 10px 0;
+
+            > li {
+                &:nth-child(2) {
+                    margin: 10px 0;
+                }
+
+                text-align: left;
+            }
+        }
+
         &__icon {
             & {
                 z-index: 5;
@@ -153,11 +211,11 @@
             }
 
             &::before {
-                top: 3;
+                top: 3px;
             }
 
             &::after {
-                bottom: 3;
+                bottom: 3px;
             }
 
             & span {
@@ -177,6 +235,43 @@
             &_active:after {
                 bottom: 50%;
                 transform: rotate(45deg) translate(0px, 50%);
+            }
+        }
+    }
+
+    // ! media query <= 375px
+    @include media (max-width, $mobile-m) {
+
+        &__list {
+            row-gap: 25px;
+        }
+
+        &__link,
+        &__sub-link {
+            font-size: 1.563rem;
+        }
+
+        &__link_with-arrow::before {
+            left: 150px;
+        }
+    }
+
+    @media (orientation: landscape) {
+        &__body {
+            padding-bottom: 10px;
+
+            &_open .menu__list {
+                &::before {
+                    content: '';
+                    z-index: 10;
+                    width: 100%;
+                    height: 95px;
+
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    background-color: $white-color;
+                }
             }
         }
     }
