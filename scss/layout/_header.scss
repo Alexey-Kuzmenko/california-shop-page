@@ -37,7 +37,7 @@
         }
     }
 
-    // ! media query <= 768px
+    // ! media query <= 1000px
     @include media (max-width, $tablet) {
         &__logo {
             order: 2;

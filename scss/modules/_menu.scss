@@ -40,17 +40,16 @@
     &__sub-menu {
         position: absolute;
         right: -20px;
-        z-index: 1;
+        z-index: 2;
         display: none;
 
         max-width: 200px;
         height: auto;
-        padding: 20px 10px 10px 10px;
+        padding: 10px 10px;
 
         &_open {
             display: block;
         }
-
 
         & > li {
             &:nth-child(2) {
@@ -60,7 +59,6 @@
             text-align: center;
         }
     }
-
 
     // ! media query >= 1024px
     @include media(min-width, $laptop) {
@@ -131,7 +129,17 @@
         }
     }
 
-    // ! media query <= 768px
+    // ! media query >= 1000px
+    @include media (min-width, $laptop) {
+        &__sub-menu {
+            margin-top: 3px !important;
+            background-color: $dark-white-color;
+            border-radius: 15px;
+            filter: $shadow;
+        }
+    }
+
+    // ! media query <= 1000px
     @include media (max-width, $tablet) {
         &__body {
             position: fixed;
@@ -141,6 +149,7 @@
             height: 100%;
             padding: 100px 0 0 10px;
             overflow: auto;
+            z-index: 3;
 
             background-color: $white-color;
             transition: left 0.3s ease-in;
@@ -256,7 +265,7 @@
         }
     }
 
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (max-width: $laptop) {
         &__body {
             padding-bottom: 10px;
 

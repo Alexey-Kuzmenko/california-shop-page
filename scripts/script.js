@@ -31,11 +31,31 @@
 
     function dropMenuHandler(e) {
         e.stopPropagation()
-
         if (screen.width <= 1000) {
             document.querySelector('.menu__sub-menu')
                 .classList.toggle('menu__sub-menu_open')
         }
     }
+
+    // ! swiper slider
+    const swiper = new Swiper('.swiper', {
+        autoHeight: true,
+        spaceBetween: 15,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            type: 'bullets'
+        },
+        simulateTouch: false,
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+        },
+    })
 
 })()

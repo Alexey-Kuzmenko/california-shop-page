@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <title>California</title>
@@ -74,11 +75,87 @@
         </header> <!-- ! .header -->
 
         <main class="main">
-            <div class="main__container container"></div>
+            <div class="main__container container">
+
+                <div class="advertisement">
+
+                    <!-- ! Slider main container -->
+                    <div class="advertisement__swiper swiper">
+
+                        <!-- * Sliderwrapper -->
+                        <div class="swiper__wrapper swiper-wrapper">
+
+                            <!-- * Slides -->
+                            <div class="swiper-slide swiper-slide_first">
+                                <div class="swiper-slide__flex-container">
+
+                                    <div class="swiper-slide__content swiper-slide__content_margin-left">
+                                        <h1 class="swiper-slide__title">The new phones are here take a look.</h1>
+                                        <p class="swiper-slide__text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit. Scelerisque in est dui, aliquam, tempor. Faucibus morbi turpis.</p>
+                                        <a href="#" class="swiper-slide__button button button_small">Explore</a>
+                                    </div>
+                                    <figure class="swiper-slide__image-wrapper">
+                                        <picture>
+                                            <img src="images/slider_image_1.svg" alt="" class="swiper-slide__image">
+                                        </picture>
+                                    </figure>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide swiper-slide_second">
+                                <div class="swiper-slide__flex-container">
+
+                                    <div class="swiper-slide__content swiper-slide__content_margin-left">
+                                        <h1 class="swiper-slide__title">The new phones are here take a look.</h1>
+                                        <p class="swiper-slide__text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit. Scelerisque in est dui, aliquam, tempor. Faucibus morbi turpis.</p>
+                                        <a href="#" class="swiper-slide__button button button_small">Explore</a>
+                                    </div>
+                                    <figure class="swiper-slide__image-wrapper">
+                                        <img src="images/slider_image_2.png" alt="" class="swiper-slide__image">
+                                    </figure>
+
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-slide_third">
+                                <div class="swiper-slide__flex-container swiper-slide__flex-container_column">
+
+                                    <div class="swiper-slide__content swiper-slide__content_align-center">
+                                        <h1 class="swiper-slide__title swiper-slide__title_align-center">The new Apple
+                                            Watch Series 7.</h1>
+                                        <p class="swiper-slide__text swiper-slide__text_align-center">Lorem ipsum dolor
+                                            sit amet, consectetur adipiscing
+                                            elit. Scelerisque in est dui, aliquam, tempor. Faucibus morbi turpis.</p>
+                                        <a href="#" class="swiper-slide__button button button_small">Explore</a>
+                                    </div>
+                                    <figure class="swiper-slide__image-wrapper">
+                                        <img src="images/slider_image_3.png" alt="" class="swiper-slide__image">
+                                    </figure>
+
+                                </div>
+                            </div>
+                        </div> <!-- * Sliderwrapper -->
+
+                        <!-- * Slider pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- * Slider navigation buttons -->
+                        <div class="swiper-button-prev swiper__button_prev"></div>
+                        <div class="swiper-button-next swiper__button_next"></div>
+
+                    </div> <!-- ! Slider main container -->
+
+                </div> <!-- * .advertisement -->
+
+            </div> <!-- * main__container -->
+
         </main> <!-- ! .main -->
 
     </div> <!-- ! .page -->
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="scripts/script.js"></script>
 </body>
 

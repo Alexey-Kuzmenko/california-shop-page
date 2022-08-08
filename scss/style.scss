@@ -14,11 +14,16 @@
 @import 'layout/page';
 @import 'layout/container';
 @import 'layout/header';
+@import 'layout/main';
 
 
 // * modules
 @import 'modules/menu';
 @import 'modules/inputs';
+@import 'modules/buttons';
+
+// * vendors extensions
+@import 'vendors-extensions/swiper';
 
 // * animations
 @import 'animation/animations'

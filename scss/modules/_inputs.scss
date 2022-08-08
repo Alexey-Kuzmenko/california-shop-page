@@ -10,6 +10,28 @@
     border: 1px solid $grey-color;
     border-radius: 100px;
 
+    &_animated {
+        background-color: transparent;
+        border: none;
+        transition: all 0.3s ease;
+
+        &:focus-within {
+            background-color: $dark-white-color;
+            border: 1px solid $grey-color;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+    }
+
+    &__icon {
+        cursor: pointer;
+    }
+
+    &_large {
+        height: 60px;
+        padding: 20px 0;
+    }
+
     &__input {
         &::placeholder {
             color: $black-color;
@@ -35,23 +57,7 @@
 
             &:focus {
                 width: 200px;
-
             }
         }
-    }
-
-    &__icon {
-        cursor: pointer;
-    }
-
-    &_animated {
-        background-color: transparent;
-        border: transparent;
-        transition: all 0.3s ease;
-    }
-
-    &_large {
-        height: 60px;
-        padding: 20px 0;
     }
 }
