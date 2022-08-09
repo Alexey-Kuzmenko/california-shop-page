@@ -1,0 +1,22 @@
+.advertisement {
+    &__search-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+        // ! media query >= 1000px
+        @include media (min-width, $laptop) {
+            & {
+                display: none;
+            }
+        }
+
+        // ! media query <= 375px
+        @include media (max-width, $mobile-m) {
+            & {
+                margin: 0;
+            }
+        }
+    }
+}
