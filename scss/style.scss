@@ -16,12 +16,14 @@
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/advertisement';
+@import 'layout/items-tiles';
 
 
 // * modules
 @import 'modules/menu';
 @import 'modules/inputs';
 @import 'modules/buttons';
+@import 'modules/content-block';
 
 // * vendors extensions
 @import 'vendors-extensions/swiper';

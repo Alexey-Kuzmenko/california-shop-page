@@ -11,7 +11,16 @@ $shadow: drop-shadow(0px 4px 35px rgba(0, 0, 0, 0.25));
 // * fonts
 $ff-inter: "Inter";
 $ff-readex: "Readex Pro";
-// ff - font-family
+
+$cb-text-size: 0.875rem;
+$cb-text-line-height: 1.063rem;
+$cb-title-size: 2.625rem;
+$cb-title-line-height: 3.25rem;
+// ff - font-family | cb - content-block
+$bar-title-size: 0.938rem;
+$bar-title-line-height: 1.188rem;
+$bar-text-size: 2rem;
+$bar-text-line-height: 2.375rem;
 
 // ! media query breakpoints
 $mobile-s: 320px;

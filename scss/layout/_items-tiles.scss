@@ -1,0 +1,193 @@
+/* * items tiles */
+.items-tiles {
+    &__content-block {
+        margin-top: 13px;
+    }
+
+    &__grid-container {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 56px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 16px;
+        grid-template-areas:
+            "first first  third fourth"
+            "first first  third fourth"
+            "second second third fourth"
+        ;
+    }
+
+    &__bar {
+        background-color: $white-color;
+        filter: $shadow;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+        &_first {
+            grid-area: first;
+
+            & .items-tiles__bar-content {
+                align-self: flex-end;
+            }
+        }
+
+        &_second {
+            grid-area: second;
+
+        }
+
+        &_third {
+            grid-area: third;
+        }
+
+        &_fourth {
+            grid-area: fourth;
+        }
+
+        &_first,
+        &_second {
+            padding: 0 42px;
+        }
+
+        // ! media query >= 1000px
+        @include media(min-width, $tablet) {
+
+            &_first,
+            &_fourth {
+                &:hover {
+                    transform: translateY(-20px);
+                    transition: transform 0.5s ease;
+                }
+            }
+
+            &_second,
+            &_third {
+                &:hover {
+                    transform: translateY(20px);
+                    transition: transform 0.5s ease;
+                }
+            }
+
+            &:hover img {
+                transform: scale(1.05);
+                transition: transform 0.5s ease;
+            }
+        }
+
+        // ! media query <= 1440px
+        @include media(max-width, $laptop-l) {
+            &_second .items-tiles__bar-image {
+                width: 50%;
+            }
+        }
+
+        // ! media query <= 1024px
+        @include media(max-width, $laptop) {
+
+            &_first,
+            &_second {
+                padding: 0 22px;
+            }
+        }
+    }
+
+    &__link-wrapper {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__bar-flex-container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+
+        width: inherit;
+        height: inherit;
+
+        &_row {
+            flex-flow: row nowrap;
+        }
+
+        &_row-gap {
+            row-gap: 42px;
+        }
+
+        &_reverse {
+            flex-direction: column-reverse;
+        }
+
+        &_centered {
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__bar-image > img,
+    &__bar-image {
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    &__bar-content {
+        width: 100%;
+        max-width: 233px;
+
+        &_align-center {
+            text-align: center
+        }
+
+        &_align-right {
+            text-align: right
+        }
+    }
+
+    &__bar-title {
+        @include font-style($black-color, $bar-title-line-height, $bar-title-size);
+        font-weight: 400;
+        margin: 0 0 5px 0;
+    }
+
+    &__bar-text {
+        @include font-style($black-color, $bar-text-line-height, $bar-text-size);
+        font-weight: 400;
+    }
+
+    // ! media query <= 768px
+    @include media(max-width, $tablet) {
+        &__grid-container {
+            grid-gap: 10px;
+        }
+
+        &__bar-title {
+            margin-bottom: 3px;
+        }
+
+        &__bar-text {
+            font-size: 1.5rem;
+            line-height: 1.9rem;
+        }
+    }
+
+    // ! testing
+    @include media(max-width, 600px) {
+        &__grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-areas:
+                "first first"
+                "first first"
+                "second second"
+                "third fourth"
+                "third fourth"
+                "third fourth"
+            ;
+        }
+
+        &__bar_second .items-tiles__bar-image {
+            scale: 1.5;
+        }
+    }
+}
