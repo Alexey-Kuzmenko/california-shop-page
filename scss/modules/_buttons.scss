@@ -30,7 +30,7 @@
     }
 
     // ! media query <= 1000px
-    @include media(max-width, $laptop) {
+    @include media(max-width, $tablet) {
         & {
             background-color: $black-color;
             color: $white-color;

@@ -1,3 +1,4 @@
+/* * menu */
 .menu {
     &__list {
         display: flex;
@@ -39,7 +40,7 @@
 
     &__sub-menu {
         position: absolute;
-        right: -20px;
+        right: -30px;
         z-index: 2;
         display: none;
 
@@ -136,6 +137,17 @@
             background-color: $dark-white-color;
             border-radius: 15px;
             filter: $shadow;
+
+            & > li {
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: all 0.3s ease-in;
+
+                &:hover {
+                    background-color: $grey-color;
+                    transition: all 0.5s ease-in;
+                }
+            }
         }
     }
 
@@ -184,7 +196,7 @@
 
             > li {
                 &:nth-child(2) {
-                    margin: 10px 0;
+                    margin: 20px 0;
                 }
 
                 text-align: left;

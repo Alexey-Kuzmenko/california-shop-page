@@ -77,12 +77,16 @@
             text-align: center;
         }
 
-        // ! media query <= 1000px
-        @include media(max-width, $tablet) {
+        // ! media query <= 1024px
+        @include media(max-width, $laptop) {
 
             & {
                 min-height: 100px;
                 overflow: hidden;
+            }
+
+            &_second .swiper-slide__image {
+                scale: 1.15;
             }
 
             &_third {
@@ -143,7 +147,7 @@
             }
         }
 
-        // ! media query <= 425px (custom value)
+        // ! media query <= 425px
         @media (max-width: $mobile-l) {
             &_third {
                 .swiper-slide__content {

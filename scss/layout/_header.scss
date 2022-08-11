@@ -39,6 +39,10 @@
 
     // ! media query <= 1000px
     @include media (max-width, $tablet) {
+        &__container {
+            padding: 30px 15px;
+        }
+
         &__logo {
             order: 2;
         }
@@ -59,11 +63,5 @@
             margin: 0;
         }
 
-    }
-
-    @include media (max-width, $mobile-m) {
-        &__container {
-            padding: 30px 15px;
-        }
     }
 }

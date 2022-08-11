@@ -1,3 +1,4 @@
+/* * content block */
 .content-block {
     display: flex;
     flex-flow: column wrap;
@@ -5,13 +6,32 @@
 
     &__title {
         @include font-style($black-color, $cb-title-line-height, $cb-title-size);
-        margin-bottom: 13px
+        margin-bottom: 13px;
+
+        @include media (max-width, $tablet) {
+            & {
+                font-size: 1.7rem;
+                line-height: 2rem;
+            }
+        }
+
+        @include media (max-width, $mobile-s) {
+            & {
+                font-size: 1.5rem;
+            }
+        }
     }
 
     &__text {
         @include font-style($black-color, $cb-text-line-height, $cb-text-size);
         max-width: 628px;
         width: 100%;
+
+        @include media (max-width, $mobile-l) {
+            & {
+                font-size: 0.8rem;
+            }
+        }
     }
 
     &__title,
