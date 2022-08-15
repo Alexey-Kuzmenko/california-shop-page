@@ -294,6 +294,105 @@ body {
   }
 }
 
+/* * items cards block  */
+.items-cards-block {
+  margin-top: 72px;
+}
+.items-cards-block__swiper {
+  margin: 30px 0;
+}
+@media (min-width: 1200px) {
+  .items-cards-block__swiper > .swiper-button-prev, .items-cards-block__swiper > .swiper-button-next {
+    display: none;
+  }
+}
+.items-cards-block__card,
+.items-cards-block .swiper-slide_small {
+  position: relative;
+  width: 100%;
+  max-width: 310px;
+  min-height: 396px;
+  padding: 28px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  transition: all 0.3s ease-in;
+}
+@media (min-width: 1024px) {
+  .items-cards-block__card:hover,
+.items-cards-block .swiper-slide_small:hover {
+    background-color: #F8F9FA;
+    transition: all 0.5s ease-in;
+  }
+  .items-cards-block__card:hover .items-cards-block__card-add-to-cart-icon,
+.items-cards-block .swiper-slide_small:hover .items-cards-block__card-add-to-cart-icon {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease-in;
+  }
+}
+@media (max-width: 768px) {
+  .items-cards-block__card,
+.items-cards-block .swiper-slide_small {
+    background-color: #F8F9FA;
+  }
+}
+.items-cards-block__card-link-wrapper {
+  display: block;
+}
+.items-cards-block__card-image {
+  margin-bottom: 33px;
+}
+.items-cards-block__card-title {
+  color: #000000;
+  line-height: 1.75rem;
+  font-size: 1.375rem;
+  font-weight: 400;
+  font-family: "Readex Pro";
+}
+.items-cards-block__card-text {
+  color: #000000;
+  line-height: 1.063rem;
+  font-size: 0.875rem;
+}
+.items-cards-block__card-price {
+  color: #000000;
+  line-height: 1.75rem;
+  font-size: 1.125rem;
+}
+.items-cards-block__card-title, .items-cards-block__card-text {
+  margin-bottom: 9px;
+}
+.items-cards-block__card-add-to-cart-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in;
+}
+@media (max-width: 1200px) {
+  .items-cards-block__swiper {
+    padding: 0 20px;
+  }
+  .items-cards-block__card-add-to-cart-icon {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@media (max-width: 500px) {
+  .items-cards-block__swiper {
+    padding: 0 40px;
+  }
+  .items-cards-block .swiper-slide_small {
+    max-width: 410px;
+  }
+}
+@media (max-width: 320px) {
+  .items-cards-block__swiper {
+    padding: 0 15px;
+  }
+}
+
 /* * menu */
 .menu__list {
   display: flex;
@@ -810,7 +909,7 @@ body {
   }
 }
 @media (max-width: 375px) {
-  .swiper {
+  .swiper:first-child {
     display: none;
   }
 }/*# sourceMappingURL=style.css.map */

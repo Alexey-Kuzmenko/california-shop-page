@@ -9,6 +9,7 @@
     // ! functions calling
     header.addEventListener('click', onHeaderClickHandler, false)
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
+    itemsCardsSlider()
 
     // * header functionality
     function onHeaderClickHandler(e) {
@@ -38,7 +39,8 @@
     }
 
     // ! swiper slider
-    const swiper = new Swiper('.swiper', {
+    /* advertisement slider */
+    const swiper = new Swiper('.advertisement__swiper', {
         autoHeight: true,
         spaceBetween: 15,
         navigation: {
@@ -56,6 +58,52 @@
             pauseOnMouseEnter: true,
             disableOnInteraction: false,
         },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        }
     })
+
+    /* items cards slider */
+    function itemsCardsSlider() {
+        if (screen.width <= 1200) {
+            const itemsSwiper = new Swiper('.items-cards-block__swiper', {
+                autoHeight: false,
+                spaceBetween: 27,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                watchOverflow: true,
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        slidesPerGroup: 1,
+                        centeredSlides: true,
+                    },
+                    512: {
+                        slidesPerView: 1.5,
+                        centeredSlides: true,
+                    },
+                    600: {
+                        slidesPerView: 2,
+                        centeredSlides: true,
+                    },
+                    768: {
+                        slidesPerView: 2.5,
+                        centeredSlides: true,
+                    },
+                    800: {
+                        centeredSlides: false
+                    },
+                    1024: {
+                        slidesPerView: 3,
+
+                    },
+                }
+
+            })
+        }
+    }
 
 })()

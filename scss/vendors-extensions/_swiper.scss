@@ -191,7 +191,7 @@
 
     // ! media query <= 375px
     @include media (max-width, $mobile-m) {
-        & {
+        &:first-child {
             display: none;
         }
     }
