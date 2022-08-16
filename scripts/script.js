@@ -75,30 +75,27 @@
                     prevEl: '.swiper-button-prev'
                 },
                 watchOverflow: true,
+                centeredSlides: true,
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
                         slidesPerGroup: 1,
-                        centeredSlides: true,
                     },
                     512: {
                         slidesPerView: 1.5,
-                        centeredSlides: true,
                     },
                     600: {
                         slidesPerView: 2,
-                        centeredSlides: true,
                     },
                     768: {
                         slidesPerView: 2.5,
-                        centeredSlides: true,
                     },
                     800: {
                         centeredSlides: false
                     },
                     1024: {
                         slidesPerView: 3,
-
+                        centeredSlides: false
                     },
                 }
 

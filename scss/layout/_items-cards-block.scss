@@ -41,6 +41,14 @@
             }
         }
 
+        // ! media query >= 1440px
+        @include media(min-width, $laptop-l) {
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+
+        // ! media query <= 768px
         @include media (max-width, $tablet-s) {
             background-color: $dark-white-color;
         }
@@ -112,5 +120,4 @@
             padding: 0 15px;
         }
     }
-
 }
