@@ -10,6 +10,7 @@
         column-gap: 28px;
         justify-content: center;
         align-items: center;
+        padding-bottom: 28px;
     }
 
     &__card {
@@ -22,6 +23,15 @@
 
         border-radius: 16px;
         background-color: $dark-white-color;
+        transition: transform 0.3s ease;
+
+        // ! media query >= 1024px
+        @include media(min-width, $laptop) {
+            &:hover {
+                transform: translateY(-20px);
+                transition: transform 0.5s ease;
+            }
+        }
     }
 
     &__card-content {
@@ -34,6 +44,8 @@
         }
 
         text-align: center;
+        font-family: $ff-readex;
+        font-weight: 400;
     }
 
     &__card-content,

@@ -412,6 +412,7 @@ body {
        column-gap: 28px;
   justify-content: center;
   align-items: center;
+  padding-bottom: 28px;
 }
 .items-сategories__card {
   display: flex;
@@ -422,9 +423,18 @@ body {
   padding-top: 41px;
   border-radius: 16px;
   background-color: #F8F9FA;
+  transition: transform 0.3s ease;
+}
+@media (min-width: 1024px) {
+  .items-сategories__card:hover {
+    transform: translateY(-20px);
+    transition: transform 0.5s ease;
+  }
 }
 .items-сategories__card-content {
   text-align: center;
+  font-family: "Readex Pro";
+  font-weight: 400;
 }
 .items-сategories__card-content > p {
   color: #000000;
@@ -449,6 +459,85 @@ body {
   .items-сategories__card {
     max-width: 413px;
     width: 100%;
+  }
+}
+
+.promo-block {
+  margin-top: 47px;
+}
+.promo-block__content-block {
+  margin-bottom: 56px;
+}
+.promo-block__grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+  grid-template-rows: 477px 70px;
+  grid-auto-rows: 477px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.promo-block__text {
+  color: #000000;
+  line-height: 1.875rem;
+  font-size: 1.5rem;
+}
+.promo-block__text:not(:last-child) {
+  margin-bottom: 23px;
+}
+.promo-block__link {
+  display: block;
+  position: relative;
+  color: #000000;
+  line-height: 1.875rem;
+  font-size: 1.5rem;
+}
+.promo-block__link::after {
+  content: url(../images/icons/arrow_up.svg);
+  position: absolute;
+  left: calc(100% + 5px);
+  top: 2px;
+  transition: transform 0.3s ease;
+}
+@media (min-width: 1024px) {
+  .promo-block__link {
+    justify-self: center;
+    grid-column: 1/3;
+  }
+  .promo-block__link:hover::after {
+    transform: translateY(-5px);
+    transition: transform 0.5s ease;
+  }
+}
+@media (max-width: 1024px) {
+  .promo-block__grid-wrapper {
+    grid-template-rows: 477px 300px 70px;
+    justify-items: center;
+    align-items: center;
+  }
+  .promo-block__text {
+    text-align: center;
+  }
+  .promo-block__link {
+    grid-column: 1/2;
+  }
+}
+@media (max-width: 768px) {
+  .promo-block__grid-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .promo-block__text {
+    font-size: 1.25rem;
+  }
+  .promo-block__text:not(:last-child) {
+    margin-bottom: 13px;
+  }
+}
+@media (max-width: 425px) {
+  .promo-block__grid-wrapper {
+    grid-template-rows: repeat(2, 300px) 70px;
+  }
+  .promo-block__link {
+    font-size: 1.25rem;
   }
 }
 

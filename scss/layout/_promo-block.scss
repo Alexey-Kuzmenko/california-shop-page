@@ -1,0 +1,97 @@
+.promo-block {
+    margin-top: 47px;
+
+    &__content-block {
+        margin-bottom: 56px;
+    }
+
+    &__grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+        grid-template-rows: 477px 70px;
+        grid-auto-rows: 477px;
+        column-gap: 15px;
+    }
+
+    &__text {
+        @include font-style($black-color, $promo-block-text-lh, $promo-block-text-size);
+
+        &:not(:last-child) {
+            margin-bottom: 23px;
+        }
+    }
+
+    &__link {
+        display: block;
+        position: relative;
+
+
+        @include font-style($black-color, $promo-block-text-lh, $promo-block-text-size);
+
+        &::after {
+            content: url(../images/icons/arrow_up.svg);
+            position: absolute;
+            left: calc(100% + 5px);
+            top: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        // ! media query >= 1024px
+        @include media (min-width, $laptop) {
+            justify-self: center;
+            grid-column: 1 / 3;
+
+            &:hover {
+                &::after {
+                    transform: translateY(-5px);
+                    transition: transform 0.5s ease;
+                }
+            }
+        }
+    }
+
+    // ! media query <= 1024px
+    @include media (max-width, $laptop) {
+        &__grid-wrapper {
+            grid-template-rows: 477px 300px 70px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        &__text {
+            text-align: center;
+        }
+
+        &__link {
+            grid-column: 1 / 2;
+        }
+    }
+
+    // ! media query <= 768px
+    @include media (max-width, $tablet-s) {
+        &__grid-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        &__text {
+            font-size: 1.25rem;
+
+            &:not(:last-child) {
+                margin-bottom: 13px;
+            }
+        }
+    }
+
+    // ! media query <= 425px
+    @include media (max-width, $mobile-l) {
+        &__grid-wrapper {
+            grid-template-rows: repeat(2, 300px) 70px;
+        }
+
+        &__link {
+            font-size: 1.25rem;
+        }
+    }
+
+
+}
