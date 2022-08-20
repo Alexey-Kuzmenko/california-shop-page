@@ -462,6 +462,7 @@ body {
   }
 }
 
+/* * promo block */
 .promo-block {
   margin-top: 47px;
 }
@@ -475,6 +476,9 @@ body {
   grid-auto-rows: 477px;
   -moz-column-gap: 15px;
        column-gap: 15px;
+}
+.promo-block__content {
+  padding-top: 14px;
 }
 .promo-block__text {
   color: #000000;
@@ -525,6 +529,9 @@ body {
   .promo-block__grid-wrapper {
     grid-template-columns: 1fr;
   }
+  .promo-block__content {
+    padding-top: 0;
+  }
   .promo-block__text {
     font-size: 1.25rem;
   }
@@ -539,6 +546,53 @@ body {
   .promo-block__link {
     font-size: 1.25rem;
   }
+}
+
+/* * search-block */
+.search-block {
+  margin-top: 32px;
+}
+.search-block__flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.search-block__search-controls {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+}
+.search-block__keywords {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 200px));
+  grid-template-rows: repeat(2, 42px);
+  grid-template-rows: 42px;
+  grid-gap: 7px;
+  max-width: 660px;
+  width: 100%;
+  margin-top: 13px;
+}
+.search-block__keyword {
+  padding: 12px 22px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border: 1px solid #C5C5C5;
+  border-radius: 200px;
+  transition: background-color 0.3s ease-in;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .search-block__keyword:hover {
+    background-color: #F8F9FA;
+    transition: background-color 0.5s ease-in;
+  }
+}
+.search-block__email-postcard {
+  margin-top: 60px;
 }
 
 /* * menu */
@@ -913,6 +967,110 @@ body {
   font-family: "Readex Pro";
   font-weight: 400;
   text-align: center;
+}
+
+/* * email postcard */
+.email-postcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 14px;
+  max-width: 935px;
+  width: 100%;
+  padding: 47px 0;
+  background-color: #DCE5E2;
+  border-radius: 16px;
+}
+.email-postcard__controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  max-width: 400px;
+  width: 100%;
+}
+.email-postcard__input-wrapper {
+  padding: 16px 0 16px 32px;
+  border: 1px solid #000000;
+  border-radius: 54px 0 0 54px;
+}
+.email-postcard__input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 0;
+}
+.email-postcard__input::-moz-placeholder {
+  color: #000000;
+}
+.email-postcard__input:-ms-input-placeholder {
+  color: #000000;
+}
+.email-postcard__input::placeholder {
+  color: #000000;
+}
+.email-postcard__button {
+  width: 100%;
+  max-width: 115px;
+  padding: 13px 32px;
+  color: #FFFFFF;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: #000000;
+  border-radius: 0px 200px 200px 0px;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+@media (min-width: 1024px) {
+  .email-postcard__button:hover {
+    background-color: transparent;
+    color: #000000;
+    transition: all 0.5s ease-in;
+  }
+}
+.email-postcard__input::-moz-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+}
+.email-postcard__input:-ms-input-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+}
+.email-postcard__input::placeholder, .email-postcard__button {
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+}
+@media (max-width: 1024px) {
+  .email-postcard {
+    padding: 47px 15px;
+  }
+}
+@media (max-width: 400px) {
+  .email-postcard__controls {
+    flex-wrap: wrap;
+    row-gap: 7px;
+  }
+  .email-postcard__input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 54px;
+    padding-right: 32px;
+  }
+  .email-postcard__input::-moz-placeholder {
+    text-align: center;
+  }
+  .email-postcard__input:-ms-input-placeholder {
+    text-align: center;
+  }
+  .email-postcard__input, .email-postcard__input::placeholder {
+    text-align: center;
+  }
+  .email-postcard__button {
+    border-radius: 54px;
+  }
 }
 
 /* swiper */

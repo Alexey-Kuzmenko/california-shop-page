@@ -8,6 +8,7 @@
         @include font-style($black-color, $cb-title-line-height, $cb-title-size);
         margin-bottom: 13px;
 
+        // ! media query <= 768px
         @include media (max-width, $tablet) {
             & {
                 font-size: 1.7rem;
@@ -15,6 +16,7 @@
             }
         }
 
+        // ! media query <= 320px
         @include media (max-width, $mobile-s) {
             & {
                 font-size: 1.5rem;
@@ -27,6 +29,7 @@
         max-width: 628px;
         width: 100%;
 
+        // ! media query <= 425px
         @include media (max-width, $mobile-l) {
             & {
                 font-size: 0.8rem;

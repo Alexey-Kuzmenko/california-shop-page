@@ -1,0 +1,57 @@
+/* * search-block */
+.search-block {
+    margin-top: 32px;
+
+    &__flex-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__search-controls {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        padding-top: 14px;
+    }
+
+    &__keywords {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(70px, 200px));
+        grid-template-rows: repeat(2, 42px);
+        grid-template-rows: 42px;
+        grid-gap: 7px;
+
+        max-width: 660px;
+        width: 100%;
+        margin-top: 13px;
+    }
+
+    &__keyword {
+        padding: 12px 22px;
+
+        cursor: pointer;
+        background-color: $white-color;
+        border: 1px solid $grey-color;
+        border-radius: 200px;
+        transition: background-color 0.3s ease-in;
+
+        text-align: center;
+
+
+        @include media(min-width, $laptop) {
+            &:hover {
+                background-color: $dark-white-color;
+                transition: background-color 0.5s ease-in;
+            }
+        }
+    }
+
+    &__email-postcard {
+        margin-top: 60px;
+    }
+}

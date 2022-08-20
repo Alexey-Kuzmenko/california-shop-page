@@ -1,3 +1,4 @@
+/* * promo block */
 .promo-block {
     margin-top: 47px;
 
@@ -11,6 +12,10 @@
         grid-template-rows: 477px 70px;
         grid-auto-rows: 477px;
         column-gap: 15px;
+    }
+
+    &__content {
+        padding-top: 14px;
     }
 
     &__text {
@@ -71,6 +76,10 @@
     @include media (max-width, $tablet-s) {
         &__grid-wrapper {
             grid-template-columns: 1fr;
+        }
+
+        &__content {
+            padding-top: 0;
         }
 
         &__text {
