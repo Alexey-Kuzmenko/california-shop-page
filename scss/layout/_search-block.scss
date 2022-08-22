@@ -45,7 +45,7 @@
         @include font-style($black-color, $cb-text-line-height, $cb-text-size);
         text-align: center;
 
-
+        // ! media query >= 1024px
         @include media(min-width, $laptop) {
             &:hover {
                 background-color: $dark-white-color;
