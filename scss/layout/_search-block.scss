@@ -19,12 +19,11 @@
     }
 
     &__keywords {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
-        grid-template-columns: repeat(auto-fill, minmax(70px, 200px));
-        grid-template-rows: repeat(2, 42px);
-        grid-template-rows: 42px;
-        grid-gap: 7px;
+        gap: 7px;
 
         max-width: 660px;
         width: 100%;
@@ -32,6 +31,9 @@
     }
 
     &__keyword {
+        min-width: 70px;
+        max-width: 145px;
+        width: auto;
         padding: 12px 22px;
 
         cursor: pointer;
@@ -40,6 +42,7 @@
         border-radius: 200px;
         transition: background-color 0.3s ease-in;
 
+        @include font-style($black-color, $cb-text-line-height, $cb-text-size);
         text-align: center;
 
 

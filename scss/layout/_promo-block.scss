@@ -24,6 +24,10 @@
         &:not(:last-child) {
             margin-bottom: 23px;
         }
+
+        &:hover {
+            cursor: default;
+        }
     }
 
     &__link {

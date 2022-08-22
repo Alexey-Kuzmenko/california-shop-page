@@ -42,5 +42,9 @@
         font-family: $ff-readex;
         font-weight: 400;
         text-align: center;
+
+        &:hover {
+            cursor: default;
+        }
     }
 }

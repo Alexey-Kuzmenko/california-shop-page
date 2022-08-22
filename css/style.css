@@ -488,6 +488,9 @@ body {
 .promo-block__text:not(:last-child) {
   margin-bottom: 23px;
 }
+.promo-block__text:hover {
+  cursor: default;
+}
 .promo-block__link {
   display: block;
   position: relative;
@@ -566,23 +569,28 @@ body {
   padding-top: 14px;
 }
 .search-block__keywords {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 200px));
-  grid-template-rows: repeat(2, 42px);
-  grid-template-rows: 42px;
-  grid-gap: 7px;
+  gap: 7px;
   max-width: 660px;
   width: 100%;
   margin-top: 13px;
 }
 .search-block__keyword {
+  min-width: 70px;
+  max-width: 145px;
+  width: auto;
   padding: 12px 22px;
   cursor: pointer;
   background-color: #FFFFFF;
   border: 1px solid #C5C5C5;
   border-radius: 200px;
   transition: background-color 0.3s ease-in;
+  color: #000000;
+  line-height: 1.063rem;
+  font-size: 0.875rem;
   text-align: center;
 }
 @media (min-width: 1024px) {
@@ -968,6 +976,9 @@ body {
   font-weight: 400;
   text-align: center;
 }
+.content-block__title:hover, .content-block__text:hover {
+  cursor: default;
+}
 
 /* * email postcard */
 .email-postcard {
@@ -1058,15 +1069,6 @@ body {
     align-items: center;
     border-radius: 54px;
     padding-right: 32px;
-  }
-  .email-postcard__input::-moz-placeholder {
-    text-align: center;
-  }
-  .email-postcard__input:-ms-input-placeholder {
-    text-align: center;
-  }
-  .email-postcard__input, .email-postcard__input::placeholder {
-    text-align: center;
   }
   .email-postcard__button {
     border-radius: 54px;
