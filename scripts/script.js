@@ -5,10 +5,13 @@
     const menu = document.querySelector('.menu__body')
     const navLinks = document.querySelectorAll('.menu__link')
     const doropMenuLink = document.querySelector('.menu__link_with-arrow')
+    const toTopBtn = document.querySelector('.to-top-btn')
 
     // ! functions calling
+    window.addEventListener('scroll', showToTopButton, false)
     header.addEventListener('click', onHeaderClickHandler, false)
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
+    toTopBtn.addEventListener('click', scrollToTop, false)
     itemsCardsSlider()
 
     // * header functionality
@@ -36,6 +39,24 @@
             document.querySelector('.menu__sub-menu')
                 .classList.toggle('menu__sub-menu_open')
         }
+    }
+
+
+
+    // * to top button functionality
+    function showToTopButton() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            toTopBtn.classList.add('to-top-btn_visible')
+        } else {
+            toTopBtn.classList.remove('to-top-btn_visible')
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
     }
 
     // ! swiper slider

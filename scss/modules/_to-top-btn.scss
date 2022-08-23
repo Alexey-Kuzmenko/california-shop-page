@@ -1,0 +1,39 @@
+.to-top-btn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 5%;
+    bottom: 10%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    visibility: hidden;
+    background-color: $dark-white-color;
+    border-radius: 50%;
+
+    &_visible {
+        visibility: visible;
+    }
+
+    // ! media query >= 1000px
+    @include media (min-width, $tablet) {
+        & {
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in;
+
+            &:hover {
+                opacity: 1;
+                transition: opacity 0.5s ease-in;
+            }
+        }
+    }
+
+    // ! media query <= 1000px
+    @include media (max-width, $tablet) {
+        outline: 1px solid $black-color;
+    }
+
+}
