@@ -1,13 +1,14 @@
 .modal-cookies-window {
     position: fixed;
     bottom: 0;
-    z-index: 2;
+    z-index: 6;
 
     width: 100%;
     padding: 20px 15px;
 
     &__container {
         position: relative;
+        overflow: auto;
     }
 
     &__flex-wrapper {
@@ -45,6 +46,21 @@
         margin-left: 50px;
         user-select: none;
     }
+
+
+    // ! media query height <= 500px
+    @media (max-height: 500px) {
+        &__controls-wrapper {
+            flex-direction: row;
+            column-gap: 15px;
+        }
+
+        &__controls > p {
+            margin-left: 35px;
+        }
+
+    }
+
 
     &__buttons {
         display: flex;

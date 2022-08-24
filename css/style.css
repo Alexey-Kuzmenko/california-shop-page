@@ -1172,9 +1172,11 @@ body {
   visibility: hidden;
   background-color: #F8F9FA;
   border-radius: 50%;
+  transition: visibility 0.3s ease;
 }
 .to-top-btn_visible {
   visibility: visible;
+  transition: visibility 0.5s ease;
 }
 @media (min-width: 1000px) {
   .to-top-btn {
@@ -1203,7 +1205,7 @@ body {
 .modal-cookies-window {
   position: fixed;
   bottom: 0;
-  z-index: 2;
+  z-index: 6;
   width: 100%;
   padding: 20px 15px;
   background-color: #F8F9FA;
@@ -1211,6 +1213,7 @@ body {
 }
 .modal-cookies-window__container {
   position: relative;
+  overflow: auto;
 }
 .modal-cookies-window__flex-wrapper {
   display: flex;
@@ -1241,6 +1244,16 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+@media (max-height: 500px) {
+  .modal-cookies-window__controls-wrapper {
+    flex-direction: row;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+  .modal-cookies-window__controls > p {
+    margin-left: 35px;
+  }
 }
 .modal-cookies-window__buttons {
   display: flex;
