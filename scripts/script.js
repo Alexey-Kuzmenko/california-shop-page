@@ -1,17 +1,20 @@
 (function () {
     // * UI elements
     const body = document.body
+    const main = document.querySelector('.main')
     const header = document.querySelector('.header')
     const menu = document.querySelector('.menu__body')
     const navLinks = document.querySelectorAll('.menu__link')
     const doropMenuLink = document.querySelector('.menu__link_with-arrow')
     const toTopBtn = document.querySelector('.to-top-btn')
+    const cookiesWindow = document.querySelector('.modal-cookies-window')
 
     // ! functions calling
     window.addEventListener('scroll', showToTopButton, false)
     header.addEventListener('click', onHeaderClickHandler, false)
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
     toTopBtn.addEventListener('click', scrollToTop, false)
+    cookiesWindow.addEventListener('click', onCookiesWindowClick, false)
     itemsCardsSlider()
 
     // * header functionality
@@ -42,6 +45,13 @@
     }
 
 
+    // ? search inpust functionality
+    // function clearSearchInput({ target }) {
+    //     if (target.classList.contains === 'search-wrapper__icon') {
+    //         // console.log(target.closest('.search-wrapper__input'));
+    //         alert('You click lable')
+    //     }
+    // }
 
     // * to top button functionality
     function showToTopButton() {
@@ -57,6 +67,16 @@
             top: 0,
             behavior: "smooth"
         })
+    }
+
+
+    // * cookies modal window functionality
+    function onCookiesWindowClick({ target }) {
+        if (target.dataset.btnType === 'accept' || target.dataset.btnType === 'close') {
+            cookiesWindow.remove()
+        } else if (target.dataset.btnType === 'settings') {
+            document.querySelector('.modal-cookies-window__controls-wrapper').classList.toggle('modal-cookies-window__controls-wrapper_open')
+        }
     }
 
     // ! swiper slider

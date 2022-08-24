@@ -385,7 +385,7 @@
                                 <label for="search-input" class="search-wrapper__icon">
                                     <img src="images/icons/search_icon.svg" alt="Search icon">
                                 </label>
-                                <input type="search" name="search-input"
+                                <input type="search" name="search"
                                     class="search-wrapper__input search-wrapper__input_large" id="search-input"
                                     placeholder="Search keyword">
                             </div>
@@ -510,7 +510,70 @@
 
         <div class="to-top-btn">
             <img src="images/icons/to_top_arrow.svg" alt="To top arrow">
-        </div>
+        </div> <!-- * .to-top-btn -->
+
+        <div class="modal-cookies-window">
+            <div class="modal-cookies-window__container container">
+
+                <div class="modal-cookies-window__flex-wrapper">
+                    <div class="modal-cookies-window__content">
+                        <h3 class="modal-cookies-window__title">This website uses cookies</h3>
+                        <p class="modal-cookies-window__text">We use cookies to personalize content and ads, to provide
+                            social
+                            media features and to analyze our traffic. We also share information about your use of our
+                            site
+                            with
+                            our social media, advertising, and analytics partners, who may combine it with other
+                            information
+                            that you've provided to them or that they've collected from your use of their services.
+                        </p>
+                    </div>
+
+                    <div class="modal-cookies-window__controls-wrapper">
+                        <div class="modal-cookies-window__controls">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="checkbox">
+                                <span class="checkbox-checkmark"></span>
+                            </label>
+                            <p>Necessary</p>
+                        </div>
+
+                        <div class="modal-cookies-window__controls">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="checkbox">
+                                <span class="checkbox-checkmark"></span>
+                            </label>
+                            <p>Preferences</p>
+                        </div>
+
+                        <div class="modal-cookies-window__controls">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="checkbox">
+                                <span class="checkbox-checkmark"></span>
+                            </label>
+                            <p>Marketing</p>
+                        </div>
+
+                        <div class="modal-cookies-window__controls">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="checkbox" checked="checked">
+                                <span class="checkbox-checkmark checkbox-checkmark_disable"></span>
+                            </label>
+                            <p>Statistics</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-cookies-window__buttons">
+                        <button class="button button_small" data-btn-type="accept">Accept</button>
+                        <button class="button button_small" data-btn-type="settings">Settings</button>
+                    </div>
+                </div>
+
+                <span class="modal-cookies-window__close-btn" data-btn-type="close">&times;</span>
+
+            </div> <!-- * .modal-cookies-window__container -->
+
+        </div> <!-- * .modal-cookies-window -->
 
     </div> <!-- ! .page -->
 

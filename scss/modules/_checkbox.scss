@@ -1,0 +1,65 @@
+/* * checkbox */
+.checkbox-container {
+    display: block;
+    position: relative;
+
+    .checkbox {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+
+    &,
+    .checkbox {
+        cursor: pointer;
+    }
+
+    .checkbox-checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        border: 1px solid $black-color;
+        border-radius: 5px;
+
+        background-color: $dark-white-color;
+        transition: all 0.3s ease-in;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        &_disable {
+            pointer-events: none;
+        }
+
+    }
+
+    &:hover .checkbox ~ .checkbox-checkmark {
+        background-color: $grey-color;
+        transition: all 0.5s ease-in;
+    }
+
+    & .checkbox:checked ~ .checkbox-checkmark {
+        background-color: $black-color;
+    }
+
+    & .checkbox:checked ~ .checkbox-checkmark::after {
+        display: block;
+    }
+
+    & .checkbox-checkmark::after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid $white-color;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+    }
+
+}
