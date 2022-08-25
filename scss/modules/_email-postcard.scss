@@ -13,6 +13,29 @@
     background-color: $olive-color;
     border-radius: 16px;
 
+    &_popup {
+        position: fixed;
+        z-index: 5;
+        max-width: 650px;
+        padding: 30px 15px;
+
+        left: 20px;
+        bottom: 10%;
+
+        > .email-postcard__img {
+            max-width: 30%;
+        }
+
+        // ! media query >= 1000px
+        @include media (min-width, $laptop) {
+            & {
+                -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+            }
+        }
+    }
+
     &__controls {
         display: flex;
         justify-content: center;
@@ -72,10 +95,36 @@
         line-height: $cb-text-line-height;
     }
 
+    &__close-btn {
+        font-size: 2rem;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+
+        cursor: pointer;
+    }
+
     // ! media query <= 768px 
     @include media(max-width, $laptop) {
         & {
             padding: 47px 15px;
+        }
+
+        &_popup {
+            left: 50%;
+            bottom: 25%;
+
+            -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        }
+    }
+
+    // ! media query height <= 520px (custom value)
+    @media (max-height: 520px) {
+        &_popup {
+            padding: 20px 10px;
+            bottom: 3%;
         }
     }
 

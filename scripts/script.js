@@ -8,6 +8,7 @@
     const doropMenuLink = document.querySelector('.menu__link_with-arrow')
     const toTopBtn = document.querySelector('.to-top-btn')
     const cookiesWindow = document.querySelector('.modal-cookies-window')
+    const popupEmailPostcard = document.querySelector('.email-postcard').cloneNode(true)
 
     // ! functions calling
     window.addEventListener('scroll', showToTopButton, false)
@@ -15,6 +16,10 @@
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
     toTopBtn.addEventListener('click', scrollToTop, false)
     cookiesWindow.addEventListener('click', onCookiesWindowClick, false)
+    renderPopupWindow(popupEmailPostcard)
+        .then(element => createPopupEmailPostcard(element))
+        .catch(error => console.error(error))
+    popupEmailPostcard.addEventListener('click', onEmailPostcardClick, false)
     itemsCardsSlider()
 
     // * header functionality
@@ -43,7 +48,6 @@
                 .classList.toggle('menu__sub-menu_open')
         }
     }
-
 
     // ? search inpust functionality
     // function clearSearchInput({ target }) {
@@ -76,6 +80,40 @@
             cookiesWindow.remove()
         } else if (target.dataset.btnType === 'settings') {
             document.querySelector('.modal-cookies-window__controls-wrapper').classList.toggle('modal-cookies-window__controls-wrapper_open')
+        }
+    }
+
+
+    // * email popup postcard functionality
+    function renderPopupWindow(node) {
+        return new Promise((resolve, reject) => {
+            if (!node) {
+                reject('Node is not defined')
+            } else {
+                setTimeout(() => { resolve(node) }, 1000)
+            }
+        })
+    }
+
+    let emailPostCardColors = ['#DCE5E2', '#f4ebdb', '#c4dfe6']
+
+    function postCardColorPicker(colorsArr = emailPostCardColors) {
+        return colorsArr[Math.floor(Math.random() * colorsArr.length)]
+    }
+
+    function createPopupEmailPostcard(element) {
+        const closeBtn = document.createElement('span')
+        closeBtn.classList.add('email-postcard__close-btn')
+        closeBtn.innerHTML = '&times;'
+        element.appendChild(closeBtn)
+        element.classList.add('email-postcard_popup')
+        element.style.backgroundColor = postCardColorPicker()
+        main.insertAdjacentElement('afterbegin', element)
+    }
+
+    function onEmailPostcardClick({ target }) {
+        if (target.classList.contains('email-postcard__close-btn') || target.nodeName === 'BUTTON') {
+            popupEmailPostcard.remove()
         }
     }
 

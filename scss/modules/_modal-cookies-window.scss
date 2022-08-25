@@ -47,21 +47,6 @@
         user-select: none;
     }
 
-
-    // ! media query height <= 500px
-    @media (max-height: 500px) {
-        &__controls-wrapper {
-            flex-direction: row;
-            column-gap: 15px;
-        }
-
-        &__controls > p {
-            margin-left: 35px;
-        }
-
-    }
-
-
     &__buttons {
         display: flex;
         flex-wrap: wrap;
@@ -85,4 +70,15 @@
         font-size: 2rem;
     }
 
+    // ! media query height <= 500px (custom value)
+    @media (max-height: 500px) {
+        &__controls-wrapper {
+            flex-direction: row;
+            column-gap: 15px;
+        }
+
+        &__controls > p {
+            margin-left: 35px;
+        }
+    }
 }
