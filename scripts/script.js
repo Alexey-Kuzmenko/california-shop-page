@@ -1,4 +1,5 @@
 (function () {
+
     // * UI elements
     const body = document.body
     const main = document.querySelector('.main')
@@ -13,6 +14,7 @@
     // ! functions calling
     window.addEventListener('scroll', showToTopButton, false)
     header.addEventListener('click', onHeaderClickHandler, false)
+    menu.addEventListener('click', onMenuClickHandler, false)
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
     toTopBtn.addEventListener('click', scrollToTop, false)
     cookiesWindow.addEventListener('click', onCookiesWindowClick, false)
@@ -22,11 +24,22 @@
     popupEmailPostcard.addEventListener('click', onEmailPostcardClick, false)
     itemsCardsSlider()
 
+    // * set body scroll function
+    function setBodyScroll(element) {
+        if (element.classList.contains('menu__icon_active')) {
+            body.dataset.bodyScroll = false
+        } else {
+            body.dataset.bodyScroll = true
+        }
+    }
+
     // * header functionality
+    // * header handler
     function onHeaderClickHandler(e) {
         if (e.target.classList.contains('menu__icon')) {
             e.target.classList.toggle('menu__icon_active')
             menu.classList.toggle('menu__body_open')
+            setBodyScroll(e.target)
         } else if (e.target.classList.contains('menu__link')) {
             e.target.classList.add('menu__link_active')
             checkNavLinkClass(e.target)
@@ -49,13 +62,18 @@
         }
     }
 
-    // ? search inpust functionality
-    // function clearSearchInput({ target }) {
-    //     if (target.classList.contains === 'search-wrapper__icon') {
-    //         // console.log(target.closest('.search-wrapper__input'));
-    //         alert('You click lable')
-    //     }
-    // }
+    // * mobile menu handler
+    function onMenuClickHandler({ target }) {
+        const mobileMenuIcon = document.querySelector('.menu__icon')
+
+        if (screen.width <= 1000 && target.matches('a')) {
+            menu.classList.remove('menu__body_open')
+            mobileMenuIcon.classList.remove('menu__icon_active')
+            setBodyScroll(mobileMenuIcon)
+        } else if (screen.width <= 1000 && target.classList.contains('menu__link_with-arrow')) {
+            return
+        }
+    }
 
     // * to top button functionality
     function showToTopButton() {
@@ -74,7 +92,7 @@
     }
 
 
-    // * cookies modal window functionality
+    // * cookies modal window handler
     function onCookiesWindowClick({ target }) {
         if (target.dataset.btnType === 'accept' || target.dataset.btnType === 'close') {
             cookiesWindow.remove()
@@ -95,9 +113,9 @@
         })
     }
 
-    let emailPostCardColors = ['#DCE5E2', '#f4ebdb', '#c4dfe6']
+    let emailPostcardColors = ['#DCE5E2', '#f4ebdb', '#c4dfe6']
 
-    function postCardColorPicker(colorsArr = emailPostCardColors) {
+    function postCardColorPicker(colorsArr = emailPostcardColors) {
         return colorsArr[Math.floor(Math.random() * colorsArr.length)]
     }
 
@@ -111,6 +129,7 @@
         main.insertAdjacentElement('afterbegin', element)
     }
 
+    // * popup email postcard handler
     function onEmailPostcardClick({ target }) {
         if (target.classList.contains('email-postcard__close-btn') || target.nodeName === 'BUTTON') {
             popupEmailPostcard.remove()
@@ -118,7 +137,7 @@
     }
 
     // ! swiper slider
-    /* advertisement slider */
+    // * advertisment slider settings  
     const swiper = new Swiper('.advertisement__swiper', {
         autoHeight: true,
         spaceBetween: 15,
@@ -143,7 +162,10 @@
         }
     })
 
-    /* items cards slider */
+    /* 
+        * function which initializes swiper when screen width smaller than 1200px     
+        * items cards slider settings
+    */
     function itemsCardsSlider() {
         if (screen.width <= 1200) {
             const itemsSwiper = new Swiper('.items-cards-block__swiper', {

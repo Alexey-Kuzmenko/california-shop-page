@@ -34,6 +34,25 @@
 
             }
         }
+
+        // ! media query height <= 520px (custom value)
+        @media (max-height: 520px) {
+            & {
+                padding: 20px 10px;
+                bottom: 3% !important;
+            }
+        }
+
+        // ! media query height <= 400px
+        @include media (max-height, 400px) {
+            & {
+                max-width: 450px;
+
+                & > .email-postcard__img {
+                    max-width: 25%;
+                }
+            }
+        }
     }
 
     &__controls {
@@ -105,7 +124,7 @@
     }
 
     // ! media query <= 768px 
-    @include media(max-width, $laptop) {
+    @include media(max-width, $tablet-s) {
         & {
             padding: 47px 15px;
         }
@@ -117,14 +136,6 @@
             -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
-        }
-    }
-
-    // ! media query height <= 520px (custom value)
-    @media (max-height: 520px) {
-        &_popup {
-            padding: 20px 10px;
-            bottom: 3%;
         }
     }
 
@@ -147,7 +158,5 @@
         &__button {
             border-radius: 54px;
         }
-
     }
-
 }

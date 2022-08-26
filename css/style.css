@@ -68,6 +68,9 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+body[data-body-scroll=false] {
+  overflow: hidden;
+}
 
 /* * page */
 .page {
@@ -401,6 +404,7 @@ body {
   }
 }
 
+/* * items сategories  */
 .items-сategories {
   margin-top: 47px;
 }
@@ -988,6 +992,7 @@ body {
   width: 90%;
 }
 
+/* * buttons */
 .button {
   display: flex;
   align-items: center;
@@ -1096,6 +1101,20 @@ body {
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 }
+@media (max-height: 520px) {
+  .email-postcard_popup {
+    padding: 20px 10px;
+    bottom: 3% !important;
+  }
+}
+@media (max-height: 400px) {
+  .email-postcard_popup {
+    max-width: 450px;
+  }
+  .email-postcard_popup > .email-postcard__img {
+    max-width: 25%;
+  }
+}
 .email-postcard__controls {
   display: flex;
   justify-content: center;
@@ -1163,7 +1182,7 @@ body {
   right: 20px;
   cursor: pointer;
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .email-postcard {
     padding: 47px 15px;
   }
@@ -1172,12 +1191,6 @@ body {
     bottom: 25%;
     -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-}
-@media (max-height: 520px) {
-  .email-postcard_popup {
-    padding: 20px 10px;
-    bottom: 3%;
   }
 }
 @media (max-width: 400px) {
@@ -1241,6 +1254,7 @@ body {
   }
 }
 
+/* * modal window */
 .modal-cookies-window {
   position: fixed;
   bottom: 0;
@@ -1514,6 +1528,7 @@ body {
   }
 }
 
+/* * animations */
 @-webkit-keyframes bounce-top {
   0% {
     transform: translateY(-15px);
