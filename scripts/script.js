@@ -11,7 +11,6 @@
     const cookiesWindow = document.querySelector('.modal-cookies-window')
     const emailPostcardControls = document.querySelector('.email-postcard__controls')
     const popupEmailPostcard = document.querySelector('.email-postcard').cloneNode(true)
-    console.log(emailPostcardControls);
 
     // ! functions calling
     window.addEventListener('scroll', showToTopButton, false)
