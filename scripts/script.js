@@ -9,13 +9,16 @@
     const doropMenuLink = document.querySelector('.menu__link_with-arrow')
     const toTopBtn = document.querySelector('.to-top-btn')
     const cookiesWindow = document.querySelector('.modal-cookies-window')
+    const emailPostcardControls = document.querySelector('.email-postcard__controls')
     const popupEmailPostcard = document.querySelector('.email-postcard').cloneNode(true)
+    console.log(emailPostcardControls);
 
     // ! functions calling
     window.addEventListener('scroll', showToTopButton, false)
     header.addEventListener('click', onHeaderClickHandler, false)
     menu.addEventListener('click', onMenuClickHandler, false)
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
+    emailPostcardControls.addEventListener('click', postcardControlsHandler, false)
     toTopBtn.addEventListener('click', scrollToTop, false)
     cookiesWindow.addEventListener('click', onCookiesWindowClick, false)
     renderPopupWindow(popupEmailPostcard)
@@ -75,6 +78,21 @@
         }
     }
 
+    // * email postcard controls block handler
+    function postcardControlsHandler(e) {
+        if (e.target.classList.contains('email-postcard__button')) {
+            const input = e.currentTarget.children[0].firstElementChild
+
+            apiService(input.value, {
+                method: 'GET',
+                redirect: 'follow'
+            }).then(res => checkResponceStatus(res))
+                .catch(err => showAlertMsg(err))
+
+            input.value = ""
+        }
+    }
+
     // * to top button functionality
     function showToTopButton() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -91,7 +109,6 @@
         })
     }
 
-
     // * cookies modal window handler
     function onCookiesWindowClick({ target }) {
         if (target.dataset.btnType === 'accept' || target.dataset.btnType === 'close') {
@@ -101,14 +118,13 @@
         }
     }
 
-
     // * email popup postcard functionality
     function renderPopupWindow(node) {
         return new Promise((resolve, reject) => {
             if (!node) {
                 reject('Node is not defined')
             } else {
-                setTimeout(() => { resolve(node) }, 1000)
+                setTimeout(() => { resolve(node) }, 30000)
             }
         })
     }
@@ -126,14 +142,56 @@
         element.appendChild(closeBtn)
         element.classList.add('email-postcard_popup')
         element.style.backgroundColor = postCardColorPicker()
+        // * added EventListener for popup postcard controls block
+        element.children[2].addEventListener('click', postcardControlsHandler, false)
         main.insertAdjacentElement('afterbegin', element)
     }
 
     // * popup email postcard handler
-    function onEmailPostcardClick({ target }) {
-        if (target.classList.contains('email-postcard__close-btn') || target.nodeName === 'BUTTON') {
+    function onEmailPostcardClick(e) {
+        if (e.target.classList.contains('email-postcard__close-btn') || e.target.nodeName === 'BUTTON') {
             popupEmailPostcard.remove()
         }
+    }
+
+    // ! API sevice
+    async function http(url, options) {
+        try {
+            const response = await fetch(url, options)
+            if (Math.floor(response.status / 100) === 2) {
+                const responseData = response.json()
+                return responseData
+            } else {
+                return Promise.reject(response.status)
+            }
+        } catch (error) {
+            showAlertMsg(error)
+        }
+    }
+
+    function apiService(userEmail, requestOptions) {
+        const apiUrl = 'https://api.eva.pingutil.com/email'
+
+        if (!userEmail.length) {
+            alert('Error')
+            return
+        }
+
+        return http(`${apiUrl}?email=${userEmail}`, requestOptions)
+    }
+
+    function checkResponceStatus({ status, data: { email_address, deliverable } }) {
+        if (status === 'success' && deliverable === true) {
+            showAlertMsg(`Response status: ${status}, ${email_address} is deliverable`)
+        } else if (status === 'success' && deliverable === false) {
+            showAlertMsg(`Response status: ${status}, ${email_address} is not deliverable`)
+        } else {
+            showAlertMsg(`Response status: ${status}`)
+        }
+    }
+
+    function showAlertMsg(message) {
+        alert(message)
     }
 
     // ! swiper slider
