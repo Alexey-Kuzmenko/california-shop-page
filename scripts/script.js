@@ -7,9 +7,10 @@
     const menu = document.querySelector('.menu__body')
     const navLinks = document.querySelectorAll('.menu__link')
     const doropMenuLink = document.querySelector('.menu__link_with-arrow')
+    const searchBlockControls = document.querySelector('.search-block__search-controls')
+    const emailPostcardControls = document.querySelector('.email-postcard__controls')
     const toTopBtn = document.querySelector('.to-top-btn')
     const cookiesWindow = document.querySelector('.modal-cookies-window')
-    const emailPostcardControls = document.querySelector('.email-postcard__controls')
     const popupEmailPostcard = document.querySelector('.email-postcard').cloneNode(true)
 
     // ! functions calling
@@ -17,6 +18,7 @@
     header.addEventListener('click', onHeaderClickHandler, false)
     menu.addEventListener('click', onMenuClickHandler, false)
     doropMenuLink.addEventListener('click', dropMenuHandler, false)
+    searchBlockControls.addEventListener('click', searchBlockControlsHandler, false)
     emailPostcardControls.addEventListener('click', postcardControlsHandler, false)
     toTopBtn.addEventListener('click', scrollToTop, false)
     cookiesWindow.addEventListener('click', onCookiesWindowClick, false)
@@ -75,6 +77,34 @@
         } else if (screen.width <= 1000 && target.classList.contains('menu__link_with-arrow')) {
             return
         }
+    }
+
+    // * search block controls handler
+    function searchBlockControlsHandler({ target }) {
+        const searchBlockInput = document.getElementById('search-input-keywords')
+        if (target.classList.contains('search-block__keyword')) {
+            const keywordValue = editKeyValue(target.dataset.value)
+            searchBlockInput.value = keywordValue
+        }
+    }
+
+    /* 
+        * that function gets keyword data-value and edits it
+        * get value like this: 'iphone-13' return this: 'Iphone 13'
+    */
+    function editKeyValue(value) {
+        let correctValue = ''
+        value.split('').forEach((letter, i, arr) => {
+            if (i === 0 || arr[i - 1] === '-' || arr[i - 1] === '') {
+                correctValue += arr[i].toUpperCase()
+            } else if (arr[i] === '-') {
+                correctValue += ' '
+            } else {
+                correctValue += arr[i]
+            }
+        })
+
+        return correctValue
     }
 
     // * email postcard controls block handler
@@ -171,8 +201,8 @@
     function apiService(userEmail, requestOptions) {
         const apiUrl = 'https://api.eva.pingutil.com/email'
 
-        if (!userEmail.length) {
-            alert('Error')
+        if (userEmail === null || userEmail.length === 0) {
+            alert('Please write your email address')
             return
         }
 
@@ -220,8 +250,8 @@
     })
 
     /* 
-        * function which initializes swiper when screen width smaller than 1200px     
         * items cards slider settings
+        * function which initializes swiper when screen width smaller than 1200px     
     */
     function itemsCardsSlider() {
         if (screen.width <= 1200) {
@@ -246,9 +276,10 @@
                         slidesPerView: 2,
                     },
                     768: {
-                        slidesPerView: 2.5,
+                        slidesPerView: 2,
                     },
                     800: {
+                        slidesPerView: 3,
                         centeredSlides: false
                     },
                     1024: {
